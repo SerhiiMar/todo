@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # 3rd apps
+    "crispy_forms",
+    "crispy_bootstrap5",
+
     # user apps
     "tasks.apps.TasksConfig",
 ]
@@ -70,6 +74,10 @@ TEMPLATES = [
         },
     },
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 WSGI_APPLICATION = 'todo.wsgi.application'
 
