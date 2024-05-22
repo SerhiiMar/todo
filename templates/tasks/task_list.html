@@ -39,12 +39,12 @@
               {% for tag in task.tags.all %}
                 {{ tag.name }}
               {% endfor %}
-
             </h6>
           {% endif %}
-
-
-
+          
+        {% if task.content %}
+          <p class="card-text">{{ task.content }}</p>
+        {% endif %}
           <a href="{% url 'tasks:task-update' pk=task.pk %}">Update</a>
           <a href="{% url 'tasks:task-delete' pk=task.pk %}">Delete</a>
         </div>
@@ -57,13 +57,11 @@
             {% endif %}
           </p>
         </div>
-
+      
       </div>
 
     {% endfor %}
   {% else %}
     <p>No tasks yet.</p>
   {% endif %}
-
-
 {% endblock %}
