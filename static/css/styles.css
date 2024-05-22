@@ -1,0 +1,8 @@
+body {
+    margin-top: 20px;
+}
+
+.card {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(205, 232, 251, 0.4);
+}
