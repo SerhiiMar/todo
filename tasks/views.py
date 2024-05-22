@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -48,3 +49,11 @@ class TaskDeleteView(generic.DeleteView):
     model = Task
     fields = "__all__"
     success_url = reverse_lazy("tasks:task-list")
+
+
+def task_toggle_completion(request, pk):
+    if request.method == "POST":
+        task = Task.objects.get(pk=pk)
+        task.is_done = not task.is_done
+        task.save()
+    return redirect("tasks:task-list")

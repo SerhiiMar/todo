@@ -11,6 +11,7 @@ urlpatterns = [
     path("create/", views.TaskCreateView.as_view(), name="task-create"),
     path("<int:pk>/update/", views.TaskUpdateView.as_view(), name="task-update"),
     path("<int:pk>delete/", views.TaskDeleteView.as_view(), name="task-delete"),
+    path("<int:pk>/toggle/", views.task_toggle_completion, name="task-toggle-completion"),
 
     # tags
     path("tags/", views.TagListView.as_view(), name="tag-list"),

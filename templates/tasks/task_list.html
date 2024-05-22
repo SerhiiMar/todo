@@ -24,7 +24,14 @@
                 <h5 class="text-danger d-inline">Not done</h5>
               {% endif %}
             </div>
-            <a class="btn btn-success" href="#">Complete</a>
+            <form action="{% url 'tasks:task-toggle-completion' pk=task.pk %}" method="post">
+              {% csrf_token %}
+              {% if task.is_done %}
+                <input class="btn btn-secondary" type="submit" value="Undo">
+                {% else %}
+                <input class="btn btn-success" type="submit" value="Complete">
+              {% endif %} 
+            </form>
           </div>
           {% if task.tags.all %}
             <h6 class="card-subtitle mb-2 text-body-secondary">
